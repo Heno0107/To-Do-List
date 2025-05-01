@@ -15,7 +15,7 @@ export function Input ({text , onChange , arr , setArr}) {
     return (
         <div className='inpContainer'>
             <input type='text' placeholder='Type text' value={text} onChange={(e) => onChange(e.target.value)}/>
-            <button onClick={add}>Add</button>
+            <button onClick={add} className='inpBtn'>Add</button>
         </div>
     )
 }
