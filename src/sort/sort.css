@@ -1,0 +1,19 @@
+.sort {
+    background-color: blue;
+    border: none;
+    padding: 16px 28px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 20px;
+    margin: 12px;
+    transition: 0.4s;
+    &:hover {
+        background-color: white;
+        color: blue;
+    }
+}
+
+.sortDiv {
+    max-width: 500px;
+    margin: auto;
+}

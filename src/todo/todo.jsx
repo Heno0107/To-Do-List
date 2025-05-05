@@ -1,6 +1,7 @@
 import './todo.css'
+import { Task } from '../task/task'
 
-export function Todo ({todosArr , setTodosArr}) {
+export function Todo ({todosArr , setTodosArr , task , setTask}) {
     function change(id){
         setTodosArr(todosArr.map((todo) => {
             if(id === todo.id){
@@ -18,15 +19,24 @@ export function Todo ({todosArr , setTodosArr}) {
         setTodosArr(todosArr.filter((todo) => todo.id !== id))
     }
 
+    function editChange (id) {
+        setTodosArr(todosArr.map((todo) => {
+            if(id === todo.id){
+                return {
+                    ...todo,
+                    title : task,
+                    editable : !todo.editable
+                }
+            }else {
+                return todo
+            }
+        }))
+    }
+    
+    console.log(task)
     return (
-        <ul>
-            {todosArr.map((todo) => {
-                return <div key={todo.id} className='todo'>
-                <input type="checkbox" checked = {todo.checked} onChange={() => change(todo.id)}/>
-                <span>{todo.title}</span>
-                <button className='todoBtn' onClick={() => remove(todo.id)}>X</button>
-            </div>
-    })}
-    </ul>
+        <Task todosArr = {todosArr} change = {change} task = {task} setTask = {setTask} editChange = {editChange} remove = {remove} />
     )
 }
+
+//todosArr , change , task , setTask , editChange , remove
